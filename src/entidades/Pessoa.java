@@ -95,6 +95,12 @@ public class Pessoa {
 		this.nascimento = nascimento;
 	}
 	
-	
+	public boolean validaLogin(String senha) {
+		if(this.senha.equals(senha)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 }
