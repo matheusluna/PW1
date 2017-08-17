@@ -70,10 +70,12 @@ public class DaoBanco implements Dao {
 	@Override
 	public Pessoa read(String email) throws SQLException, ClassNotFoundException, EmailException, SenhaException, NomeException {
 		// TODO Auto-generated method stub
-		Connection connection = (Connection) (new ConFactory()).getConnection();
-		String sql = "select * from usuario u where u.email = ?";
-		PreparedStatement stmt = connection.prepareStatement(sql);
-		stmt.setString(1, email);
+		ArrayList<Pessoa> lista = list();
+		for(Pessoa p : lista) {
+			if(p.getEmail().equals(email)) {
+				return p;
+			}
+		}
 		return null;
 	}
 	

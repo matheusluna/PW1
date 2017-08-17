@@ -50,7 +50,8 @@ public class Login extends HttpServlet {
 		Pessoa pessoa = null;
 		try {
 			pessoa = banco.read(email);
-			if(pessoa.validaLogin(senha)) {
+			System.out.println(email);
+			if(pessoa.getSenha().equals(senha)) {
 				request.setAttribute("nome", pessoa.getNome());
 				request.getRequestDispatcher("/principal.jsp").forward(request, response);
 			}else {
