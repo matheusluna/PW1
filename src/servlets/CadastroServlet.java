@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import controle.Dao;
 import controle.DaoBanco;
 import entidades.Pessoa;
+import excecoes.EmailException;
+import excecoes.NomeException;
+import excecoes.SenhaException;
 
 /**
  * Servlet implementation class CadastroServlet
@@ -56,8 +59,9 @@ public class CadastroServlet extends HttpServlet {
 		String profissao = request.getParameter("profissao");
 		String foto = request.getParameter("foto");
 		String senha = request.getParameter("senha");
-		Pessoa pessoa = new Pessoa(email, nome, cidade, sexo, senha, foto, profissao, nascimento);
+		
 		try {
+			Pessoa pessoa = new Pessoa(email, nome, cidade, sexo, senha, foto, profissao, nascimento);
 			if(cadastro.create(pessoa)) {
 				response.sendRedirect("index.html");
 			}
@@ -65,6 +69,15 @@ public class CadastroServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EmailException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SenhaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NomeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

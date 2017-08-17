@@ -2,6 +2,10 @@ package entidades;
 
 import java.time.LocalDate;
 
+import excecoes.EmailException;
+import excecoes.NomeException;
+import excecoes.SenhaException;
+
 public class Pessoa {
 	private String email;
 	private String nome;
@@ -13,11 +17,14 @@ public class Pessoa {
 	private LocalDate nascimento;
 	
 	public Pessoa(String email, String nome, String cidade, String sexo, String senha, String foto, String profissao,
-			LocalDate nascimento) {
+			LocalDate nascimento) throws EmailException, SenhaException, NomeException {
+		if(email.equals("")) throw new EmailException("Campo Email não preenchido!");
 		this.email = email;
+		if(nome.equals("")) throw new NomeException("Campo Nome não preenchido!");
 		this.nome = nome;
 		this.cidade = cidade;
 		this.sexo = sexo;
+		if(senha.equals("")) throw new SenhaException("Campo Senha não preenchido!");
 		this.senha = senha;
 		this.foto = foto;
 		this.profissao = profissao;

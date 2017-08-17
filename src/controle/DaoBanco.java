@@ -13,9 +13,12 @@ import java.util.Date;
 
 import banco.ConFactory;
 import entidades.Pessoa;
+import excecoes.EmailException;
+import excecoes.NomeException;
+import excecoes.SenhaException;
 
 public class DaoBanco implements Dao {
-	private ArrayList<Pessoa> list() throws ClassNotFoundException, SQLException{
+	private ArrayList<Pessoa> list() throws ClassNotFoundException, SQLException, EmailException, SenhaException, NomeException{
 		ArrayList<Pessoa> lista = new ArrayList<>();
 		Connection connection = (Connection) new ConFactory().getConnection();
 		String sql = "select * from usuario";
@@ -40,7 +43,7 @@ public class DaoBanco implements Dao {
 		return lista;
 	}
 	@Override
-	public boolean create(Pessoa pessoa) throws SQLException, ClassNotFoundException {
+	public boolean create(Pessoa pessoa) throws SQLException, ClassNotFoundException, EmailException, SenhaException, NomeException {
 		ArrayList<Pessoa> lista = list();
 		for(Pessoa p : lista) {
 			if(p.getEmail().equals(pessoa.getEmail())) {
@@ -65,7 +68,7 @@ public class DaoBanco implements Dao {
 	}
 
 	@Override
-	public Pessoa read(String email) throws SQLException, ClassNotFoundException {
+	public Pessoa read(String email) throws SQLException, ClassNotFoundException, EmailException, SenhaException, NomeException {
 		// TODO Auto-generated method stub
 		Connection connection = (Connection) (new ConFactory()).getConnection();
 		String sql = "select * from usuario u where u.email = ?";
