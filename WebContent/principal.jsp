@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	nome: <%req.getAttribute("nome");%>
+	nome: <%request.getAttribute("nome");%>
 </body>
 </html>
