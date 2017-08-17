@@ -95,8 +95,8 @@ public class Pessoa {
 		this.nascimento = nascimento;
 	}
 	
-	public boolean validaLogin(String senha) {
-		if(this.senha.equals(senha)) {
+	public boolean validaLogin(String senhas) {
+		if(senha.equals(senhas)) {
 			return true;
 		}else {
 			return false;
