@@ -48,7 +48,7 @@ public class DaoBanco implements Dao {
 			}
 		}
 		Connection connection = (Connection) (new ConFactory()).getConnection();
-		String sql = "insert into usuario values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into usuario (email, nome, cidade, profissao, nascimento, sexo, foto, senha) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sql);
 		stmt.setString(1, pessoa.getEmail());
 		stmt.setString(2, pessoa.getNome());
