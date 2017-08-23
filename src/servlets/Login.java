@@ -56,8 +56,9 @@ public class Login extends HttpServlet {
 			}else {
 				response.sendRedirect("index.html");
 			}
-		} catch (ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
+		} catch (NullPointerException | ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
 			// TODO Auto-generated catch block
+			response.sendRedirect("index.html");
 			e.printStackTrace();
 		}
 		
