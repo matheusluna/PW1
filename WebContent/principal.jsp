@@ -9,5 +9,6 @@
 </head>
 <body>
 	nome: <%=request.getAttribute("nome")%>
+	<form action="perfil.jsp"></form>
 </body>
 </html>

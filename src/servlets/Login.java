@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 				request.setAttribute("nome", pessoa.getNome());
 				request.getRequestDispatcher("/principal.jsp").forward(request, response);
 			}else {
-				
+				response.sendRedirect("index.html");
 			}
 		} catch (ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
 			// TODO Auto-generated catch block
