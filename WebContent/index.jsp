@@ -32,10 +32,8 @@
                   <label for="senha">Senha</label>
                 </div>
                 <div class="row col s12">
-                  <p>Não tem conta? <a href="cadastro.html">Clique aqui</a></p>
-                </div>
-                <div class="row col s12">
                 	<p class="red-text"><%=request.getAttribute("erro")%></p>
+                  <p>Não tem conta? <a href="cadastro.html">Clique aqui</a></p>
                 </div>
                 <div class="row center-align">
                   <input class="btn teal darken-3" type="submit" value="Login">
