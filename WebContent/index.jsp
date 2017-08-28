@@ -30,9 +30,10 @@
                 <div class="row input-field col s12">
                   <input id="senha" type="password" name="senha">
                   <label for="senha">Senha</label>
+                  <p class="red-text"><%=request.getAttribute("erro")%></p>
                 </div>
                 <div class="row col s12">
-                	<p class="red-text"><%=request.getAttribute("erro")%></p>
+                	
                   <p>Não tem conta? <a href="cadastro.html">Clique aqui</a></p>
                 </div>
                 <div class="row center-align">
