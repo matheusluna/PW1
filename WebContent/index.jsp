@@ -20,6 +20,7 @@
           <div class="container">
             <div class="row center-align">
               <img class="circle" src="img/logo.png" height="200px" alt="">
+              <h3 class="teal-text">SisPlace</h3>
             </div>
             <div class="row">
               <form class="col s12" action="Login" method="post">
