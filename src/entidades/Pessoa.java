@@ -18,13 +18,13 @@ public class Pessoa {
 	
 	public Pessoa(String email, String nome, String cidade, String sexo, String senha, String foto, String profissao,
 			LocalDate nascimento) throws EmailException, SenhaException, NomeException {
-		if(email.equals("")) throw new EmailException("Campo Email não preenchido!");
+		if(email.equals("") || email == null) throw new EmailException("Campo Email não preenchido!");
 		this.email = email;
-		if(nome.equals("")) throw new NomeException("Campo Nome não preenchido!");
+		if(nome.equals("") || nome == null) throw new NomeException("Campo Nome não preenchido!");
 		this.nome = nome;
 		this.cidade = cidade;
 		this.sexo = sexo;
-		if(senha.equals("")) throw new SenhaException("Campo Senha não preenchido!");
+		if(senha.equals("") || senha == null) throw new SenhaException("Campo Senha não preenchido!");
 		this.senha = senha;
 		this.foto = foto;
 		this.profissao = profissao;

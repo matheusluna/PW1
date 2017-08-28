@@ -50,14 +50,20 @@ public class Login extends HttpServlet {
 		Pessoa pessoa = null;
 		try {
 			pessoa = banco.read(email);
-			if(pessoa.getSenha().equals(senha)) {
-				request.setAttribute("nome", pessoa.getNome());
-				request.getRequestDispatcher("/principal.jsp").forward(request, response);
-			}else {
-				request.setAttribute("erro", "Senha incorreta");
+			if(pessoa == null) {
+				request.setAttribute("erro", "Usuário não cadastrado");
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
+			}else {
+				if(pessoa.getSenha().equals(senha)) {
+					request.setAttribute("nome", pessoa.getNome());
+					request.getRequestDispatcher("/principal.jsp").forward(request, response);
+				}else {
+					request.setAttribute("erro", "Senha incorreta");
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+				}
 			}
-		} catch (NullPointerException | ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
+			
+		} catch (ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
 			// TODO Auto-generated catch block
 			request.setAttribute("erro", e.getMessage());
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
