@@ -58,7 +58,8 @@ public class Login extends HttpServlet {
 			}
 		} catch (NullPointerException | ClassNotFoundException | SQLException | EmailException | SenhaException | NomeException e) {
 			// TODO Auto-generated catch block
-			response.sendRedirect("index.html");
+			request.setAttribute("erro", e.getMessage());
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			e.printStackTrace();
 		}
 		
